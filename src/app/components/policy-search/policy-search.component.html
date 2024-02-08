@@ -1,0 +1,120 @@
+
+    <div *ngIf="isAdminLoggedIn()" style="text-align: center; padding-top: 15px;">
+        <h3 style="color: white;">Manage Policies</h3>
+    </div>
+    
+    <h3 *ngIf="(!isUserLoggedIn() && !isAdminLoggedIn())" style="color: white; padding-top: 15px; text-align: center;"> Log in to Buy Now!</h3>
+    
+     
+     <div class="container" style="width:700px">
+      <select (change)="handleSearchChange($event)" style="margin-top: 15px;" class="custom-select">
+        <option selected disabled>Select an option</option>
+        <option value="Sort:1">Low to High</option>
+        <option value="Sort:2">High to Low</option>
+        <option value="PolicyType:Get All">Get All</option>
+        <option value="PolicyType:Life Insurance">Life Insurance</option>
+        <option value="PolicyType:Health Insurance">Health Insurance</option>
+        <option value="PolicyType:Vehicle Insurance">Vehicle Insurance</option>
+        <option value="PolicyType:Travel Insurance">Travel Insurance</option>
+        <option value="PolicyType:Children's Plan">Children's Plan</option>
+        <option value="PolicyType:Retirement Plan">Retirement Plan</option>
+      </select>
+    </div>
+    
+    
+
+
+
+<div class="search-cards">
+<div class="card-container" style="width: 700px; margin-left: 140px;">
+  <div class="card" *ngFor="let policy of policyDetails" class="card mb-3">
+    <div class="card-header">
+      <h5 class="card-title"> {{policy.policyType}}</h5>
+    </div>
+    <div class="card-body" >
+      <p class="card-text"><strong>Policy Id:</strong> {{policy.policyId}}</p>
+      <p class="card-text"><strong>Policy Name:</strong> {{policy.policyName}}</p>
+      <p class="card-text"><strong>Policy Type:</strong> {{policy.policyType}}</p>
+      <p class="card-text"><strong>Company:</strong> {{policy.company}}</p>
+      <p class="card-text"><strong>Term Period:</strong> {{policy.termPeriod}}</p>
+      <p class="card-text"><strong>Term Amount:</strong> {{policy.amount}}</p>
+      <p class="card-text"><strong>Years:</strong> {{policy.termNo}}</p>
+      <p class="card-text"><strong>Interest:</strong> {{policy.interest}}</p>
+      <p class="card-text"><strong>Maturity Amount:</strong> {{policy.maturityAmount}}</p>
+      <p class="card-text"><strong>Description:</strong> {{policy.policyDescription}}</p>
+      <button *ngIf="isUserLoggedIn()" type="button" class="btn button" (click)="buyPolicy(policy.policyId)">Buy Now</button>
+      <button *ngIf="isAdminLoggedIn()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+      <button *ngIf="isAdminLoggedIn()" (click)="deletePolicy(policy.policyId)" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- Policy UpdateModal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div  class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Policy</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #formData=ngForm (ngSubmit)="updateFormData(formData)">
+                <div class="form-group">
+                    <label>Policy Id</label>
+                    <input class="form-control" placeholder="Policy Id" type="policyId" name="policyId" #policyId="ngModel" ngModel>
+                  </div>
+                <div class="form-group">
+                  <label>Policy Name</label>
+                  <input class="form-control" placeholder="Policy Name" type="policyName" name="policyName" #policyName="ngModel" ngModel>
+                </div>
+                <div class="form-group">
+                  <label>Company</label>
+                  <input class="form-control" placeholder="Company" type="company" name="company" #company="ngModel" ngModel>
+                </div>
+                <div class="form-group">
+                    <label>Term Amount</label>
+                    <input placeholder="Term Amount" type="amount" class="form-control" name="amount"    #amount="ngModel"  ngModel/>
+                </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Interest Rate</label>
+                    <input placeholder="Interest Rate" type="interest" class="form-control" name="interest"    #interest="ngModel"  ngModel/>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Years</label>
+                  <input placeholder="Years" type="ternNo" class="form-control" name="termNo"    #termNo="ngModel"  ngModel/>
+              </div>
+                  <mat-form-field>
+                    <mat-label>Term Period</mat-label>
+                    <select matNativeControl [formControl]="termPeriodControl" >
+                      <option value="Monthly">Monthly</option>
+                      <option value="Quaterly">Quaterly</option>
+                      <option value="Half-Yearly">Half-Yearly</option>
+                      <option value="Annually">Annually</option>
+                    </select>
+                  </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Policy Type</mat-label>
+                        <select matNativeControl [formControl]="policyTypeControl" >
+                          <option value="Life Insurance">Life Insurance</option>
+                          <option value="Health Insurance">Health Insurance</option>
+                          <option value="Vehicle Insurance">Vehicle Insurance</option>
+                          <option value="Travel Insurance">Travel Insurance</option>
+                          <option value="Retirement Plan">Retirement Plan</option>
+                          <option value="Children's Plan">Children's Plan</option>
+                        </select>
+                      </mat-form-field>
+                      
+                      <textarea placeholder="Max 500 Characters" class="form-control" rows="8" type="description" name="description" #description="ngModel" ngModel required></textarea>
+                      <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+
+      </div>
+    </div>
+  </div>
+
+  

@@ -1,0 +1,46 @@
+<section class = "search-bg">
+    <!-- <div *ngIf="isAdminLoggedIn()" style="text-align: center; padding-top: 15px;">
+        <h3 style="color: white;">Manage Policies</h3>
+    </div> -->
+    
+    <h3 *ngIf="!isUserLoggedIn()" style="color: rgb(243, 241, 244); padding-top: 15px; text-align: center;"> Log in to Buy Now!</h3>
+    
+     
+     <div class="container" style="width:700px">
+      <select (change)="handleSearchChange($event)" style="margin-top: 15px;" class="custom-select">
+        <option selected disabled>Select an option</option>
+        <option value="Sort:1">Low to High</option>
+        <option value="Sort:2">High to Low</option>
+        <option value="PolicyType:Get All">Get All</option>
+        <option value="PolicyType:Life Insurance">Life Insurance</option>
+        <option value="PolicyType:Health Insurance">Health Insurance</option>
+        <option value="PolicyType:Vehicle Insurance">Vehicle Insurance</option>
+        <option value="PolicyType:Travel Insurance">Travel Insurance</option>
+        <option value="PolicyType:Children's Plan">Children's Plan</option>
+        <option value="PolicyType:Retirement Plan">Retirement Plan</option>
+      </select>
+    </div>
+    
+    <div class="card-container" style="width: 1000px; margin-left: 140px;">
+        <div class="card" *ngFor="let policy of policyDetails" class="card mb-3">
+          <div class="card-header">
+            <h5 class="card-title"> {{policy.policyType}}</h5>
+          </div>
+          <div class="card-body" >
+            <p class="card-text"><strong>Policy Id:</strong> {{policy.policyId}}</p>
+            <p class="card-text"><strong>Policy Name:</strong> {{policy.policyName}}</p>
+            <p class="card-text"><strong>Policy Type:</strong> {{policy.policyType}}</p>
+            <p class="card-text"><strong>Company: </strong>{{policy.company}}</p>
+            <p class="card-text"><strong>Term Period: </strong>{{policy.termPeriod}}</p>
+            <p class="card-text"><strong>Term Amount:</strong> {{policy.amount}}</p>
+            <p class="card-text"><strong>Years:</strong> {{policy.termNo}}</p>
+            <p class="card-text"><strong>Interest:</strong> {{policy.interest}}</p>
+            <p class="card-text"><strong>Maturity Amount:</strong> {{policy.maturityAmount}}</p>
+            <p class="card-text"><strong>Description:</strong> {{policy.policyDescription}}</p>
+           <button *ngIf="isUserLoggedIn()" type="button" class="btn button" (click)="buyPolicy(policy.policyId)">Buy Now</button> 
+            <button *ngIf="isAdminLoggedIn()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+            <button *ngIf="isAdminLoggedIn()" (click)="deletePolicy(policy.policyId)" class="btn btn-danger">Delete</button> 
+          </div>
+        </div>
+      </div>
+</section>

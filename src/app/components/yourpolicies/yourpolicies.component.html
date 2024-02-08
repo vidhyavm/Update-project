@@ -1,0 +1,30 @@
+
+<div>
+    <div style="text-align: center; padding-top: 15px;">
+        <h3 style="color: white;">Your Policies</h3>
+
+    </div>
+
+    <div class="search-cards">
+        <div class="card-container"  style="width: 700px; margin-left: 140px; ">
+          <div class="card" *ngFor="let user of userPolicyDetails" class="card mb-3">
+            <div class="card-header">
+              <h5 class="card-title">{{ user.policy.policyName }}</h5>
+            </div>
+            <div class="card-body">
+              <p><strong>Policy No:</strong> {{ user.policyNo }}</p>
+              <p><strong>Type:</strong> {{ user.policy.policyType }}</p>
+              <p><strong>Company:</strong> {{ user.policy.company }}</p>
+              <p><strong>Start Date:</strong> {{ user.startDate }}</p>
+              <p><strong>End Date:</strong> {{ user.endDate }}</p>
+              <p><strong>Term Period:</strong> {{ user.policy.termPeriod }}</p>
+              <p><strong>Term Amount:</strong> {{ user.policy.amount }}</p>
+              <p><strong>Years:</strong> {{ user.policy.termNo }}</p>
+              <p><strong>Maturity Amount:</strong> {{ user.policy.maturityAmount }}</p>
+              <p><strong>Interest:</strong> {{ user.policy.interest }}</p>
+              <p><strong>Description:</strong> {{ user.policy.policyDescription }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

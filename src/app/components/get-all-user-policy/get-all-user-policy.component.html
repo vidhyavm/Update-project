@@ -1,0 +1,32 @@
+<div>
+  <div style="text-align: center; padding-top: 15px;">
+      <h3 style="color: white;">Manage User Policies</h3>
+  </div>
+
+  <!-- <button style="margin-bottom: 25px; margin-left: 25px;" class="btn btn-primary btn-lg" (click)="getAllUserPolicies()" type ="submit">Get All User Policy</button> -->
+
+  <div class="card-container" style="width: 700px; margin-left: 140px;">
+      <div *ngFor="let user of userPolicyDetails" class="card mb-3">
+        <div class="card-header" >
+            <h5 class="card-tittle">{{user.policy.policyName}}</h5>
+        </div>
+          <div class="card-body">
+              <p class="card-text"><strong>Policy No:</strong> {{user.policyNo}}</p>
+              <p class="card-text"><strong>User Id:</strong> {{user.user.userId}}</p>
+              <p class="card-text"><strong>Policy Name:</strong> {{user.policy.policyName}}</p>
+              <p class="card-text"><strong>Policy Type:</strong> {{user.policy.policyType}}</p>
+              <p class="card-text"><strong>Company:</strong> {{user.policy.company}}</p>
+              <p class="card-text"><strong>Start Date:</strong> {{user.startDate}}</p>
+              <p class="card-text"><strong>End Date:</strong> {{user.endDate}}</p>
+              <p class="card-text"><strong>Term Period:</strong> {{user.policy.termPeriod}}</p>
+              <p class="card-text"><strong>Term Amount:</strong> {{user.policy.amount}}</p>
+              <p class="card-text"><strong>Years:</strong> {{user.policy.termNo}}</p>
+              <p class="card-text"><strong>Maturity Amount:</strong> {{user.policy.maturityAmount}}</p>
+              <p class="card-text">I<strong>Interest: </strong>{{user.policy.interest}}</p>
+              <p class="card-text"><strong>Description:</strong> {{user.policy.policyDescription}}</p>
+              <!-- <button class="btn btn-danger" (click)="deleteUserPolicy(user.policyNo)">Delete</button> -->
+          </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,45 @@
+.search-bg
+{
+    background: linear-gradient(to right, #5000bb, #8e00cc);
+    min-height: 90%;
+    display: flex;
+
+}
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    width: 250px; /* Adjust the width as needed */
+    background: linear-gradient(to right, #8e00cc, #5000bb); /* Set your desired background color */
+    position: fixed; /* Make the sidebar fixed */
+    height: 100vh; /* Make the sidebar full height of the viewport */
+    overflow-y: auto; /* Add scroll if content exceeds the viewport height */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar a {
+    color: white; /* Set text color to white */
+    text-decoration: none; /* Remove underlines from links */
+}
+
+
+.sidebar li {
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+.sidebar li:hover {
+    background-color: rgb(203, 146, 203); /* Change to the desired light blue color */
+    color: #b588f1;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Adjust based on the sidebar width */
+}
+

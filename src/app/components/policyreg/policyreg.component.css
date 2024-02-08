@@ -1,0 +1,57 @@
+.search-bg
+{
+    /* background: linear-gradient(to right, #5000bb, #8e00cc); */
+    background-color: #5000bb;
+    min-height: 90%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh!important;
+    }
+    }
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .bg-white {
+    background-color: #ffffff;
+    }
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+    @media (max-width: 992px) {
+    .card-registration-2 .bg-white {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+
+.search-table
+{
+    background-color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 25px;
+}
+.table
+{
+   text-align: center;
+   font-family: sans-serif;
+
+}
+.button
+{
+    background: #5000bb; 
+    color: rgb(255, 255, 255); 
+    size: 20 px;
+}

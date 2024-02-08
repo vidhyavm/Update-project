@@ -1,0 +1,8 @@
+.search-bg
+{
+    background: linear-gradient(to right, #5000bb, #8e00cc);
+    min-height: 90%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+

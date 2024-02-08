@@ -1,0 +1,38 @@
+.search-bg
+{
+    background: linear-gradient(to right, #5000bb, #8e00cc); 
+    background-color: #5000bb;
+    min-height: 100%;
+}
+
+.button
+{
+    background: #5000bb; 
+    color: rgb(255, 255, 255); 
+    size: 20 px;
+}
+
+  .custom-select {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 6px; /* Adjust this value to increase the size of the search box */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  
+  /* Optional: You can add additional styling to make it visually appealing */
+  .custom-select:focus {
+    outline: none;
+    border-color: #007bff; /* Change the border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box-shadow on focus */
+  }
+  .small-cards .card {
+    width: 200px; /* Set the width as per your preference */
+    margin: 10px; /* Adjust the margin as needed */
+  }
+  
+  .small-cards .card-body {
+    padding: 10px; /* Adjust the padding as needed */
+  }

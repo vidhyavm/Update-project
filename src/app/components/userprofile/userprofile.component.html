@@ -1,0 +1,148 @@
+
+
+<div style="text-align: center; padding-top: 15px;">
+    <h3 style="color: white;">Your Profile</h3>
+
+</div>
+
+<div class="search-cards">
+<div class="card-container" style="width: 700px; margin-left: 140px; ">
+      <div class="card" *ngFor="let user of userDetails">
+        <div class="card-header">
+          <h5 class="card-title">{{ user.fname }} {{ user.lname }}</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>User ID:</strong> {{ user.userId }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Mobile Number:</strong> {{ user.mobNo }}</p>
+          <p><strong>User Type:</strong> {{ user.userType }}</p>
+          <p><strong>Employer Type:</strong> {{ user.employerType }}</p>
+          <p><strong>Employer Name:</strong> {{ user.employerName }}</p>
+          <p><strong>Salary:</strong> {{ user.salary }}</p>
+          <p><strong>Pan Number:</strong> {{ user.panNumber }}</p>
+          <p><strong>Category:</strong> {{ user.userCategory }}</p>
+          <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
+          <p><strong>Address:</strong> {{ user.address.addressLine }}, {{ user.address.city }}, {{ user.address.state }}, {{ user.address.pincode }}</p>
+  
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UserModal">Edit Details</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="UserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update User Details</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #formData=ngForm (ngSubmit)="updateUser(formData)">
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input class="form-control" placeholder="User Id" type="userId" required name="userId" #userId="ngModel" ngModel>
+                    <span style="color:red"  *ngIf="userId.touched && userId.invalid" > * User Id is required</span>
+
+                  </div>
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input class="form-control" placeholder="First Name" type="fname" required name="fname" #fname="ngModel" ngModel>
+                  <span style="color:red"  *ngIf="fname.touched && fname.invalid" > * First Name is required</span>
+
+                </div>
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input class="form-control" placeholder="Last name" type="lname" required name="lname" #lname="ngModel" ngModel>
+                  <span style="color:red"  *ngIf="lname.touched && lname.invalid" > * Last Name is required</span>
+
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input placeholder="Email" type="email" class="form-control" name="email" required   #email="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="email.touched && email.invalid" > * Email is required</span>
+
+                </div>
+                  <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input placeholder="Mobile No" type="mobNo" class="form-control" name="mobNo" required   #mobNo="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="mobNo.touched && mobNo.invalid" > * Mobile No is required</span>
+
+                </div>
+                <div class="form-group">
+                    <label>Pan Number</label>
+                    <input placeholder="Pan No" type="panNumber" class="form-control" name="panNumber" required   #panNumber="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="panNumber.touched && panNumber.invalid" > * Pan Number is required</span>
+
+                </div>
+                <div class="form-group">
+                  <label>Salary</label>
+                  <input placeholder="Salary" type="salary" class="form-control" name="salary" required   #salary="ngModel"  ngModel/>
+                  <span style="color:red"  *ngIf="salary.touched && salary.invalid" > * Salary is required</span>
+
+              </div>
+                  <div class="form-group">
+                    <label>Employer Name</label>
+                    <input placeholder="Employer Name" type="employerName" class="form-control" name="employerName" required   #employerName="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="employerName.touched && employerName.invalid" > *Employer Name is required</span>
+
+                </div>
+                <mat-form-field>
+                    <mat-label>Employer Type</mat-label>
+                    <select matNativeControl [formControl]="employerTypeControl" required>
+                      <option value="Salaried">Salaried</option>
+                      <option value="Optional">Others</option>
+                    </select>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Income</mat-label>
+                    <select matNativeControl [formControl]="userCategoryControl" required>
+                      <option value="A">Less Than 5LPA</option>
+                      <option value="B">Less Than 10LPA</option>
+                      <option value="C">Less Than 15LPA</option>
+                      <option value="D">Less Than 30LPA</option>
+                      <option value="E">More Than 30LPA</option>
+
+                    </select>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" type="dob" class="form-control" name="dob"  required  #dob="ngModel"  ngModel>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>User Type</mat-label>
+                    <select matNativeControl [formControl]="userTypeControl" >
+                      <option value="User">User</option>
+                    </select>
+                  </mat-form-field>
+                  <div class="form-control">
+                    <input placeholder="Address Line" type="addressline" class="form-control " name="addressline"  required  #addressline="ngModel"  ngModel/>
+                      <span style="color:red"  *ngIf="addressline.touched && addressline.invalid" > * Address Line is required</span>
+                  </div>
+                  <div class="form-control">
+                    <input placeholder="Pin Code" type="pincode" class="form-control"  name="pincode"  required  #pincode="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="pincode.touched && pincode.invalid" > * Pincode is required</span>
+                  </div>
+                  <div class="form-control">
+                    <input placeholder="State" type="state" class="form-control " name="state"  required  #state="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="state.touched && state.invalid" > * State is required</span>
+                  </div>
+                  <div class="form-control">
+                    <input placeholder="City" type="city" class="form-control " name="city"  required  #city="ngModel"  ngModel/>
+                    <span style="color:red"  *ngIf="city.touched && city.invalid" > * City is required</span>
+                  </div>
+                      <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Update Details</button>
+                    </form>
+
+      </div>
+    </div>
+  </div>
