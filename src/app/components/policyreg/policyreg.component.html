@@ -1,0 +1,86 @@
+
+<div style="text-align: center; padding-top: 15px;">
+  <h3 style="color: white;">POLICY REGISTRATION</h3>
+</div>
+
+   <form *ngIf="isAdminLoggedIn()" #PolicyRegFormData="ngForm" (ngSubmit)="readPolicyRegFormData(PolicyRegFormData)">
+    <div class="container" >
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-8">
+          <div class="card shadow p-4">
+            <h3 class="card-title text-center mb-4" style="color: #5000bb;">Policy Details</h3>
+  
+            <div class="mb-3">
+              <input placeholder="Policy Name" type="policyName" class="form-control" name="policyName" required minlength="5" maxlength="30" pattern="^[a-zA-Z]+$" #policyName="ngModel" ngModel/>
+              <span style="color:red" *ngIf="policyName.touched && policyName.invalid"> * Policy Name is required</span>
+              <span style="color:red"  *ngIf="PolicyRegFormData.controls['policyName'].errors?.hasOwnProperty('minlength')||PolicyRegFormData.controls['policyName'].errors?.hasOwnProperty('maxlength')"> * Minimum 5 Characters is Required </span>
+              <span style="color:red" *ngIf="PolicyRegFormData.controls['policyName'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required </span>
+            </div>
+  
+            <div class="mb-3">
+              <input placeholder="Company" type="company" class="form-control" name="company" required   minlength="3" maxlength="30" pattern="^[a-zA-Z]+$" #company="ngModel" ngModel/>
+              <span style="color:red" *ngIf="company.touched && company.invalid"> * Company is required</span>
+              <span style="color:red"  *ngIf="PolicyRegFormData.controls['company'].errors?.hasOwnProperty('minlength')||PolicyRegFormData.controls['company'].errors?.hasOwnProperty('maxlength')"> * Minimum 3 Characters is Required </span>
+              <span style="color:red" *ngIf="PolicyRegFormData.controls['company'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required </span>
+            </div>
+  
+            <div class="mb-3">
+              <mat-form-field>
+                <mat-label>Policy Type</mat-label>
+                <select matNativeControl [formControl]="policyTypeControl" required>
+                  <option value="Life Insurance">Life Insurance</option>
+                  <option value="Health Insurance">Health Insurance</option>
+                  <option value="Vehicle Insurance">Vehicle Insurance</option>
+                  <option value="Travel Insurance">Travel Insurance</option>
+                  <option value="Retirement Plan">Retirement Plan</option>
+                  <option value="Children's Plan">Children's Plan</option>
+                </select>
+              </mat-form-field>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <input placeholder="Interest Rate" type="interest" class="form-control" name="interest" required  pattern="[0-9]*" #interest="ngModel" ngModel/>
+                <span style="color:red" *ngIf="interest.touched && interest.invalid"> * Interest is required</span>
+                <span style="color:red" *ngIf="PolicyRegFormData.controls['interest'].errors?.hasOwnProperty('pattern')"> * Please enter a numeric value  </span>
+              </div>
+
+              <div class="col-md-4">
+                <input placeholder="Years" type="termNo" class="form-control" name="termNo" required pattern="[0-9]*" #termNo="ngModel" ngModel/>
+                <span style="color:red" *ngIf="termNo.touched && termNo.invalid"> * Years is required</span>
+                <span style="color:red" *ngIf="PolicyRegFormData.controls['termNo'].errors?.hasOwnProperty('pattern')"> * Please enter a numeric value </span>
+              </div>
+
+              <div class="col-md-4">
+                <input placeholder="Term Amount" type="amount" class="form-control" name="amount" required pattern="[0-9]*" #amount="ngModel" ngModel/>
+                <span style="color:red" *ngIf="amount.touched && amount.invalid"> * Amount is required</span>
+                <span style="color:red" *ngIf="PolicyRegFormData.controls['amount'].errors?.hasOwnProperty('pattern')"> * Please enter a numeric value </span>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <mat-form-field>
+                <mat-label>Term Period</mat-label>
+                <select matNativeControl [formControl]="termPeriodControl" required>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Quarterly">Quarterly</option>
+                  <option value="Half-Yearly">Half-Yearly</option>
+                  <option value="Annually">Annually</option>
+                </select>
+              </mat-form-field>
+            </div>
+  
+            <div class="mb-3">
+              <textarea placeholder="Policy Description (Max 500 Characters)" class="form-control" rows="8" type="description" name="description" #description="ngModel" ngModel required ></textarea>
+              <span style="color:red" *ngIf="description.touched && description.invalid"> * Description is required</span>
+            </div>
+  
+            <div class="text-center">
+              <button style="background: #5000bb; color: rgb(255, 255, 255);" type="submit" class="btn btn-light btn-lg" [disabled]="PolicyRegFormData.invalid">Register Policy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  

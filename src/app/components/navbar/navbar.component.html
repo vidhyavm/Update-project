@@ -1,0 +1,39 @@
+<section class="gradient-custom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <a class="navbar-brand" href="#">
+          <img src="../../../assets/Logo_nobg2.png" height="50" loading="lazy" routerLink="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" routerLink="">Home</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" (click)="backClicked()">Go Back</button>
+            </li>
+            <li class="nav-item" *ngIf="UserloggedIn">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" routerLink="/user-dashboard">Dashboard</button>
+            </li>
+            <li class="nav-item" *ngIf="AdminloggedIn">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" routerLink="/admin-dashboard">Dashboard</button>
+            </li>
+            <li class="nav-item" *ngIf="!AdminloggedIn">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" routerLink="/searchpolicy">Search Policies</button>
+            </li>
+            <li class="nav-item" *ngIf="loggedIn">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" (click)="logoutUser()">Logout</button>
+            </li>
+            <li class="nav-item" *ngIf="!loggedIn">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" routerLink="/login">Login</button>
+            </li>
+            <li class="nav-item" *ngIf="!loggedIn">
+              <button class="btn btn-outline-body px-3" style="background: #ae34ff; color: rgb(255, 255, 255);" routerLink="/register-user">Register</button>
+            </li>
+          </ul>
+        </div>
+      </nav>      
+</section>

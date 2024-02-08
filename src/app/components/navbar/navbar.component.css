@@ -1,0 +1,94 @@
+/* CSS */
+.gradient-custom {
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: rgba(78, 5, 107, 0.8); /* Adjust the background color and opacity as needed */
+}
+
+.navbar {
+    background-color: rgba(78, 5, 107, 0.8); /* Adjust the background color and opacity as needed */
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbarbrand {
+    padding: 25px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    height: 100%;
+}
+
+.btn {
+    background: #ae34ff;
+    color: rgb(255, 255, 255);
+    margin-right: 20px;
+    padding: 8px 15px; /* Adjust padding for better button appearance */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 991.98px) {
+    .header {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+  
+  /* Adjustments for extra small screens */
+  @media (max-width: 575.98px) {
+    .navbar {
+      flex-direction: column;
+    }
+  }
+  /* Navbar Brand */
+.navbar-brand img {
+    max-height: 40px;
+}
+
+/* Navbar Toggler Icon Color */
+.navbar-toggler-icon {
+    color: white; /* Change this to your desired color */
+}
+
+/* Navbar Toggler Button Background Color */
+.navbar-toggler {
+    background-color:rgba(242, 235, 244, 0.8); /* Change this to your desired color */
+    border-color:rgba(78, 5, 107, 0.8) ; /* Change this to your desired color*/
+}
+
+/* Navbar Toggler Button Hover Effect */
+.navbar-toggler:hover {
+    background-color: #f0f0f0; /* Change this to your desired hover color */
+}
+
+/* Navbar Link Button Styling */
+.navbar-nav .nav-item .btn {
+    border-radius: 20px; /* Adjust border radius as needed */
+    margin: 0 5px; /* Adjust button margin as needed */
+}
+
+/* Navbar Link Button Hover Effect */
+.navbar-nav .nav-item .btn:hover {
+    background-color:rgba(78, 5, 107, 0.8); /* Change this to your desired hover color */
+}
+
+/* Navbar Link Button Active State */
+/* .navbar-nav .nav-item.active .btn {
+    background-color: rgba(78, 5, 107, 0.8); /* Change this to your desired active color */
+/* } */ 
+
+/* Collapse Navbar Dropdown Background Color */
+.collapse.navbar-collapse {
+    background-color: rgba(78, 5, 107, 0.8); /* Change this to your desired background color */
+    border-top: 1px solid rgba(78, 5, 107, 0.8); /* Change this to your desired border color */
+}

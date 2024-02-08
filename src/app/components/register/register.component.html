@@ -1,0 +1,153 @@
+<section class = "search-bg">
+  <div style="text-align:center; padding-top:15px;">
+    <h3 style="color:white;">USER REGISTRATION</h3>
+  </div>
+  <form #RegFormData=ngForm  (ngSubmit)="readRegFormData(RegFormData)">
+    <div class="container">
+      <div  class="row justify-content-center align-items-center">
+        <div class="col-8">
+          <div class="card shadow p-4">
+                    <h3 class="card-title text-center mb-4" style="color: #5000bb;">General Infomation</h3>
+  
+                    <div class="mb-3">
+                          <input placeholder="Firstname" type="firstname" class="form-control form-control-lg" name="firstname"  required  minlength="5" maxlength="30" #firstname="ngModel"  pattern="^[a-zA-Z]+$" ngModel/>
+                          <span style="color:red"  *ngIf="firstname.touched && firstname.invalid" > * Firstname is required </span>
+                          <span style="color:red"  *ngIf="RegFormData.controls['firstname'].errors?.hasOwnProperty('minlength')||RegFormData.controls['firstname'].errors?.hasOwnProperty('maxlength')">  * Minimum 5 Characters is Required </span>
+                          <span style="color:red" *ngIf="RegFormData.controls['firstname'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required </span>
+                     </div>
+  
+                     
+                      <div class="mb-3">
+                          <input placeholder="Lastname" type="lastname" class="form-control form-control-lg" name="lastname"  required  #lastname="ngModel" minlength="5" maxlength="30" pattern="^[a-zA-Z]+$" ngModel/>
+                          <span style="color:red"  *ngIf="lastname.touched && lastname.invalid" > * Lastname is required  </span>
+                          <span style="color:red"  *ngIf="RegFormData.controls['lastname'].errors?.hasOwnProperty('minlength')||RegFormData.controls['lastname'].errors?.hasOwnProperty('maxlength')"> * Minimum 5 Characters is Required </span>
+                          <span style="color:red" *ngIf="RegFormData.controls['lastname'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required  </span>
+
+                      </div>
+
+                      <div class="mb-3">
+                          <mat-form-field>
+                            <mat-label>Employer Type</mat-label>
+                            <select matNativeControl [formControl]="employerTypeControl" required>
+                              <option value="Salaried">Salaried</option>
+                              <option value="Optional">Others</option>
+                            </select>
+                          </mat-form-field>
+                      </div>
+
+                        <div class="mb-3">
+                          <input placeholder="Employer Name" type="employername" class="form-control form-control-lg" name="employername"  required  minlength="5" maxlength="30"   pattern="^[a-zA-Z]+$" #employername="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="employername.touched && employername.invalid" > * Employer Name is required </span>
+                          <span style="color:red"  *ngIf="RegFormData.controls['employername'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required</span>
+                          <span style="color:red"  *ngIf="RegFormData.controls['employername'].errors?.hasOwnProperty('minlength')||RegFormData.controls['employername'].errors?.hasOwnProperty('maxlength')"> * Minimum 5 Characters is Required </span> 
+                        </div>
+
+                    <div class="mb-3">
+                          <input placeholder="Pan Number" type="panno" class="form-control form-control-lg" name="panno"  required pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}" #panno="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="panno.touched && panno.invalid" > * Pan Number is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['panno'].errors?.hasOwnProperty('pattern')"> * Invalid Pan Number</span>
+                    </div>
+  
+                     
+  
+                        <div class="mb-3">
+                          <mat-form-field>
+                            <mat-label>Income</mat-label>
+                            <select matNativeControl [formControl]="userCategoryControl" required>
+                              <option value="A">Less Than 5LPA</option>
+                              <option value="B">Less Than 10LPA</option>
+                              <option value="C">Less Than 15LPA</option>
+                              <option value="D">Less Than 30LPA</option>
+                              <option value="E">More Than 30LPA</option>
+
+                            </select>
+                          </mat-form-field>
+                        </div>
+  
+                        <div class="mb-3">
+                          <mat-form-field>
+                              <mat-label>Date of Birth</mat-label>
+                              <input matInput [matDatepicker]="picker" type="text" name="dob" required #dob="ngModel" ngModel>
+                              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                      </div>
+                      
+
+                   <div class="mb-3">
+                            <mat-form-field>
+                              <mat-label>User Type</mat-label>
+                              <select matNativeControl [formControl]="userTypeControl" required>
+                                <option value="User">User</option>
+                              </select>
+                            </mat-form-field>
+                   </div>
+  
+                <div class="col-lg-6 bg-white text-grey" style="margin-right: 0px;">
+                  <div class="p-4">
+                    
+                    <h3 class="card-title text-center mb-4" style="color: #5000bb;">Additional Details</h3>
+  
+                        <div class="mb-3">
+                          <input placeholder="Salary" type="salary" class="form-control form-control-lg" name="salary"  required   pattern="[0-9]*"  #salary="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="salary.touched && salary.invalid" > * Salary is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['salary'].errors?.hasOwnProperty('pattern')"> * Please enter a numeric value</span>
+                        </div>
+  
+                        <div class="mb-3">
+                          <input placeholder="Address Line" type="addressline" class="form-control form-control-lg" name="addressline"  required minlength="5" maxlength="50" #addressline="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="addressline.touched && addressline.invalid" > * Address Line is required</span>      
+                          <span style="color:red"  *ngIf="RegFormData.controls['addressline'].errors?.hasOwnProperty('minlength')||RegFormData.controls['addressline'].errors?.hasOwnProperty('maxlength')"> * Minimum 5 Characters is Required </span>
+                        </div>
+  
+                        <div class="mb-3">
+                          <input placeholder="Pin Code" type="pincode" class="form-control form-control-lg" name="pincode"  required pattern="[0-9]{6}"  #pincode="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="pincode.touched && pincode.invalid" > * Pincode is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['pincode'].errors?.hasOwnProperty('pattern')"> * Please enter a 6 digit code </span>
+
+                        </div>
+                        
+                        <div class="mb-3">
+                          <input placeholder="State" type="state" class="form-control form-control-lg" name="state"  required minlength="3" maxlength="50" pattern="^[a-zA-Z]+$" #state="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="state.touched && state.invalid" > * State is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['state'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required </span>
+                          <span style="color:red"  *ngIf="RegFormData.controls['state'].errors?.hasOwnProperty('minlength')||RegFormData.controls['state'].errors?.hasOwnProperty('maxlength')"> * Minimum 3 Characters is Required </span>
+                        </div>
+  
+                        <div class="mb-3">
+                          <input placeholder="City" type="city" class="form-control form-control-lg" name="city"  required minlength="5" maxlength="50" pattern="^[a-zA-Z]+$" #city="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="city.touched && city.invalid" > * City is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['city'].errors?.hasOwnProperty('pattern')"> * Only Characters is Required </span>
+                          <span style="color:red"  *ngIf="RegFormData.controls['city'].errors?.hasOwnProperty('minlength')||RegFormData.controls['city'].errors?.hasOwnProperty('maxlength')"> * Minimum 3 Characters is Required </span>
+                        </div>
+
+                        <div class="mb-3">
+                          <input placeholder="Mobile Number" type="mobile" class="form-control form-control-lg" name="mobile"  required  pattern="[6-9][0-9]{9}"  #mobile="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="mobile.touched && mobile.invalid" > * Mobile Number is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['mobile'].errors?.hasOwnProperty('pattern')"> * Please enter 10 digit number</span>
+                        </div>
+  
+                    <div class="mb-3">
+                        <input placeholder="Email Address" type="email" class="form-control form-control-lg" name="email"  required  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"   #email="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="email.touched && email.invalid" > * Email Address is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['email'].errors?.hasOwnProperty('pattern')"> * Please enter valid email </span>
+                    </div>
+
+                    <div class="mb-3">
+                        <input placeholder="Password" type="password" class="form-control form-control-lg" name="password"  required pattern="^[a-zA-Z0-9]{8,}$"  #password="ngModel"  ngModel/>
+                          <span style="color:red"  *ngIf="password.touched && password.invalid" > * Password is required</span>
+                          <span style="color:red" *ngIf="RegFormData.controls['password'].errors?.hasOwnProperty('pattern')"> * Password must be at least 8 characters long and contain only alphanumeric characters. </span>
+                    </div>
+  
+                    <button style="background: #5000bb; color: rgb(255, 255, 255);" type="submit" class="btn btn-light btn-lg"
+                      data-mdb-ripple-color="dark" [disabled]="RegFormData.invalid">Register User</button>
+                    </div>
+                  </div>
+               </div>
+             </div>
+           </div>
+        </div>     
+  </form>
+  <div style="height: 20px;"></div>
+  </section>
+ 

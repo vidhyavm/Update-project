@@ -1,0 +1,14 @@
+/* .gradient-custom 
+{
+     background-image: url(../../../assets/logoblur.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height:150%;
+} */
+.search-bg
+{
+    background: linear-gradient(to right, #5000bb, #8e00cc); 
+    background-color: #5000bb;
+    min-height: 100%;
+}

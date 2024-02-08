@@ -1,0 +1,66 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh!important;
+    }
+    }
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .gradient-custom-2 
+    {
+    background-image: url(../../../assets/logoblur.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height:150%;
+
+    }
+    
+    .bg-white {
+    background-color: #ffffff;
+    }
+    
+    .card-registration {
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-control {
+        border-radius: 10px;
+    }
+    
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+    
+    .btn-primary {
+        background-color: #5000bb;
+        border-color: #5000bb;
+    }
+    
+    .btn-primary:hover {
+        background-color: #3b0084;
+        border-color: #3b0084;
+    }
+    
+    @media (max-width: 768px) {
+        .card-registration {
+            border-radius: 0;
+        }
+    }
+
+    .search-bg
+    {
+        background: linear-gradient(to right, #5000bb, #8e00cc); 
+        background-color: #5000bb;
+        min-height: 100%;
+    }
+    
